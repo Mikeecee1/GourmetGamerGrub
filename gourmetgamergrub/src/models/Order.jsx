@@ -1,5 +1,6 @@
 // shopping basket functinality
-import FoodItem from "./FoodItem";
+
+
 class Order {
     /**
      * static variable to generate orderNum for order id
@@ -10,7 +11,7 @@ class Order {
         this.customer = customer;//maybe customer id
         this.orderId = orderNum;
         this.items = {}
-        orderNum++; //increments orderNum so it is unique for each order
+        Order.orderNum++; //increments orderNum so it is unique for each order
     }
 
     // getters, setter, methods
@@ -27,6 +28,12 @@ class Order {
      */
     getOrderId(){
         return this.orderId;
+    }
+    /**
+     *  need to change this to get key and value pairs -- may be better with map
+     */
+    getItems(){
+        return items
     }
     /**
      * 
@@ -52,7 +59,7 @@ class Order {
         }
     }
     /**
-     * returns total value of shopping basket - worki in progress
+     * returns total value of shopping basket - work in progress
      */
     getTotal(){
         let total = 0;

@@ -4,7 +4,7 @@
  */
 class FoodItem{
     constructor(id, name, price, options, image, category){
-        this.id = id;// not sure if needed atm
+        this.id = id;   // not sure if needed atm
         this.name = name;
         this.price = price;
         this.options = options;

@@ -55,3 +55,5 @@ class Customer{
         ///not sure how this will be implemented yet
     }
 }
+
+export default Customer

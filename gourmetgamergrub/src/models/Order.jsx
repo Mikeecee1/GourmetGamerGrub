@@ -5,7 +5,7 @@ class Order {
     /**
      * static variable to generate orderNum for order id
      */
-    static orderNum = 0
+    static orderNum = 1
     //constructor
     constructor(customer) {
         this.customer = customer;//maybe customer id
@@ -69,7 +69,6 @@ class Order {
         return total;
 
     }
-
-
-
 }
+
+export default Order

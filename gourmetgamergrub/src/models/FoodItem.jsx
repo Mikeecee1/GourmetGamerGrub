@@ -28,9 +28,31 @@ class FoodItem{
     }
     /**
      * 
-     * @returns 
+     * @returns options array as a string
      */
     getOptions(){
         return this.options.toString();
+    }
+    /**
+     * 
+     * @param {adds an option to options array} newOption 
+     */
+    addOption(newOption){
+        this.options.push(newOption);
+    }
+    /**
+     * 
+     * @param {*} oldOption removes an option from options array (mutates options)
+     */
+    removeOption(oldOption){
+        let index = this.options.indexOf(oldOption);
+        this.options = this.options.splice(index, 1);
+    }
+     /**
+      * 
+      * @returns the image associated with food item
+      */
+    getImage(){
+        return this.image;
     }
 }

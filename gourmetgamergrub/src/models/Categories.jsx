@@ -1,1 +1,1 @@
-// returns arrays of food Items with categories - maybe use category as key to display different cats?
+// returns arrays of food Items with categories - maybe use category as key to display items in different cats?

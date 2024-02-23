@@ -4,14 +4,30 @@
  */
 class FoodItem{
     constructor(id, name, price, options, image, category){
-        this.id = id;
+        this.id = id;// not sure if needed atm
         this.name = name;
         this.price = price;
         this.options = options;
         this.image = image;
+        this.category = category;
     }
 
     //getters & setters
+    /**
+     * 
+     * @returns id of food item
+     */
+    getId(){
+        return this.id
+    }
+    /**
+     * 
+     * @returns name of item 
+     */
+    getName(){
+        return this.name
+    }
+
     /**
      * 
      * @returns items price
@@ -55,4 +71,14 @@ class FoodItem{
     getImage(){
         return this.image;
     }
+    /**
+     * 
+     * @returns the category type for this item
+     */
+    getCategory(){
+        return this.category;
+    }
+
 }
+
+export default FoodItem

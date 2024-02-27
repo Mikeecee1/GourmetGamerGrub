@@ -1,0 +1,20 @@
+.categories{
+    height: 96%;
+    width: 96%;
+   
+    background-color: moccasin;
+    border: .5vh solid firebrick;
+    border-radius: 2vh;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+button{
+    height: 46%;
+    width: 46%;
+    border-radius: 2vh;
+    border: 2px solid lightcoral;
+    margin: 1vh;
+    
+}

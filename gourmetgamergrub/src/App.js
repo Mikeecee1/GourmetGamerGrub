@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import CategoryPanel from './components/CategoryPanel';
+import MenuPanel from './components/MenuPanel';
 
 function App() {
   const [showMenu, setShowMenu] = useState(false)
@@ -13,7 +14,14 @@ function App() {
         </div>
 
         <div className="menu">
-          <CategoryPanel />
+          {/* <CategoryPanel /> */}
+          <MenuPanel/>
+          <MenuPanel/>
+          <MenuPanel/>
+          <MenuPanel/>
+          <MenuPanel/>
+          <MenuPanel/>
+
         </div>
 
         <div className="basket"></div>

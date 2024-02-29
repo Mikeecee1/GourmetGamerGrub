@@ -39,12 +39,14 @@
   width: 96vw;
   height: 50vh;
   display: flex;
+  flex-direction: column;
   border-radius: 2vh;
   margin-bottom: .5vh;
   border: .5vh solid firebrick;
   background-color:goldenrod;
   align-items: center;
   justify-content: center;
+  overflow-y: scroll;
 }
 .basket{
   width: 96vw;

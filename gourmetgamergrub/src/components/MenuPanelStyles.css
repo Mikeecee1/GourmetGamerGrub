@@ -1,0 +1,52 @@
+.FoodItemComp{
+    height: 15vh;
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    background-color: antiquewhite;
+    color:darkslategray;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+.FoodItemComp img{
+    
+    width: 24%;
+    height: 88%;
+    border: .5vh solid firebrick;
+}
+.FoodItemText{
+    flex: .5;
+    flex-direction: column;
+}
+.FoodItemText h1{
+    font-size: smaller;
+    font-weight: bolder;
+}
+.FoodItemComp #AddItem{
+    width: 8vw;
+    height: 5vh;
+    border-radius: 10%;
+    background-color: greenyellow;
+    color: black;
+    font-size: larger;
+    font-weight: bold;
+    
+}
+.FoodItemComp #RemoveItem{
+    width: 8vw;
+    height: 5vh;
+    border-radius: 10%;
+    background-color: red;
+    color: black;
+    font-size: larger;
+    font-weight: bold;
+    
+}
+.FoodItemText p{
+    font-size: small;
+}
+.FoodItemButtons{
+    flex: .3;
+}

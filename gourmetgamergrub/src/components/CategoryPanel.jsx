@@ -1,3 +1,4 @@
+import imgArray from '../images/images'
 import './CategoryPanelStyles.css'
 
 function CategoryPanel(){
@@ -8,10 +9,11 @@ function CategoryPanel(){
     //html
     return(
         <div className='categories'>
-            <button id='cat1'><img src='' /></button>
-            <button id='cat2'><img src='' /></button>
-            <button id='cat3'><img src='' /></button>
-            <button id='cat4'><img src='' /></button>
+            <img id='cat1' onClick={''} src={imgArray[0]}/>
+            <img id='cat2' onClick={''} src={imgArray[1]}/>
+            <img id='cat2' onClick={''} src={imgArray[2]}/>
+            <img id='cat2' onClick={''} src={imgArray[3]}/>
+
         </div>
     )
 }

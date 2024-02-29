@@ -1,20 +1,23 @@
 .categories{
     height: 96%;
     width: 96%;
-   
+    
     background-color: moccasin;
     border: .5vh solid firebrick;
     border-radius: 2vh;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
     
     
 }
-button{
-    height: 46%;
-    width: 46%;
+.categories img{
+    height: 45%;
+    width: 45%;
     border-radius: 2vh;
     border: 2px solid lightcoral;
-    margin: 1vh;
+    margin: 1.66%;
+    float: left;
     
 }
+

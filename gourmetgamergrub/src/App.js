@@ -6,6 +6,7 @@ import MenuPanel from './components/MenuPanel';
 
 function App() {
   const [showMenu, setShowMenu] = useState(false)
+  const tempArr = [0, 1, 2, 3, 4, 5, 6];
   return (
     <div className="App">
       <header className="App-header">
@@ -14,13 +15,18 @@ function App() {
         </div>
 
         <div className="menu">
-          {/* <CategoryPanel /> */}
-          <MenuPanel/>
-          <MenuPanel/>
-          <MenuPanel/>
-          <MenuPanel/>
-          <MenuPanel/>
-          <MenuPanel/>
+        {/* conditional rendeering for menu and category displays */}
+        { showMenu ? 
+         (
+            tempArr.map((item) => {
+             return (<MenuPanel/>)
+            }
+            )
+         )
+         :
+         ( <CategoryPanel />)
+        }
+          
 
         </div>
 

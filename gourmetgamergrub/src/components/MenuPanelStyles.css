@@ -1,5 +1,5 @@
 .FoodItemComp{
-    height: 15vh;
+    height: 12vh;
     width: 98%;
     display: flex;
     flex-direction: row;
@@ -7,7 +7,7 @@
     color:darkslategray;
     justify-content: center;
     align-items: center;
-    margin-top: 1vh;
+    /* margin-top: 1vh; */
     margin-bottom: 1vh;
 }
 .FoodItemComp img{
@@ -28,7 +28,7 @@
     width: 8vw;
     height: 5vh;
     border-radius: 10%;
-    background-color: greenyellow;
+    background-color:darkolivegreen;
     color: black;
     font-size: larger;
     font-weight: bold;
@@ -38,7 +38,7 @@
     width: 8vw;
     height: 5vh;
     border-radius: 10%;
-    background-color: red;
+    background-color: firebrick;
     color: black;
     font-size: larger;
     font-weight: bold;

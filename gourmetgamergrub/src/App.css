@@ -21,7 +21,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
   color: white;
 }
 .banner {
@@ -37,11 +37,12 @@
 
 .menu {
   width: 96vw;
-  height: 50vh;
+  height: 55vh;
   display: flex;
   flex-direction: column;
   border-radius: 2vh;
-  margin-bottom: .5vh;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
   border: .5vh solid firebrick;
   background-color:goldenrod;
   align-items: center;
@@ -50,7 +51,7 @@
 }
 .basket{
   width: 96vw;
-  height: 30vh;
+  height: 25vh;
   display: block;
   border-radius: 2vh;
   border: .5vh solid firebrick;

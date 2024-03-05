@@ -7,7 +7,11 @@ function Basket(){
     
     //html
     return(
-        pass
+        <div className='order'>
+        <h1>Your Order</h1>
+        {/* //map function to display order items */}
+        <h2>Order Total:  £</h2>
+        </div>
     )
     
     }

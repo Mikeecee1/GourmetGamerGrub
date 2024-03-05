@@ -3,11 +3,12 @@
     width: 96%;
     
     background-color: moccasin;
-    border: .5vh solid firebrick;
-    border-radius: 2vh;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+    border: .75vh solid firebrick;
+    border-radius: 1vh;
+    
+    /* justify-content: center;
+    align-items: center; */
+    
     
     
 }
@@ -16,7 +17,7 @@
     width: 45%;
     border-radius: 2vh;
     border: 2px solid lightcoral;
-    margin: 1.66%;
+    margin: 1vh;
     float: left;
     
 }

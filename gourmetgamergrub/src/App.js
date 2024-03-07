@@ -2,14 +2,19 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import CategoryPanel from './components/CategoryPanel';
-import MenuPanel from './components/MenuPanel';
 import Basket from './components/Basket';
+import mainsArray from './models/Categories';
+import FoodItemPanel from './components/FoodItemPanel';
+import FoodItem from './models/FoodItem';
+import imgArray from './images/images';
 
 function App() {
 
   //variables
   const [showMenu, setShowMenu] = useState(false)
-  const tempArr = [0, 1, 2, 3, 4, 5, 6];
+  const [catMenu, setCatMenu] = useState(mainsArray)
+  const [catArray, setCatArray] = useState([0,1,2,3])
+  
 
   //functions
   // function showMenu(){}
@@ -26,13 +31,22 @@ function App() {
         { showMenu ? 
          (  
              
-            tempArr.map((item) => {
-             return (<MenuPanel />)
+            mainsArray.map((item, index) => {
+              console.log(item.getName())
+            //  const tempItem = new FoodIteim(item.name, item.price, item.description, item.image, item.category)
+             return (
+              
+              <FoodItemPanel foodName={ item.getName()} foodImage={item.getImage()} foodDesc={item.getDescription()}/>
+             )
             }
             )
          )
          :
-         ( <CategoryPanel menuItems={() => {setShowMenu(true)}}/>)
+           
+
+          <CategoryPanel menuItems={() => {setShowMenu(true)}} selectedMenu={catMenu} />
+           
+         
         }
           
 

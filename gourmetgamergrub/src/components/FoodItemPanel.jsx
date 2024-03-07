@@ -1,16 +1,16 @@
 // will contain menu/ categories and items in each category when toggled
-import './MenuPanelStyles.css'
-function MenuPanel(){
+import './FoodItemPanelStyles.css'
+function FoodItemPanel(props){
 //vars & functions
 
 
 //html
 return(
     <div className='FoodItemComp'>
-        <img src='' onClick=''></img>
+        <img src={props.foodImage} onClick=''></img>
         <div className='FoodItemText'>
-            <h1>FoodItem Title</h1>  
-            <p>Item Description....</p>
+            <h1>{props.foodName}</h1>  
+            <p id='desc'>{props.foodDesc}</p>
         </div>
         <div className='FoodItemButtons'>
             <button id='AddItem' onClick=''>+</button>
@@ -21,4 +21,4 @@ return(
 
 }
 
-export default MenuPanel
+export default FoodItemPanel

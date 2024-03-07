@@ -8,7 +8,8 @@
     justify-content: center;
     align-items: center;
     /* margin-top: 1vh; */
-    margin-bottom: 1vh;
+    /* margin-bottom: 1vh; */
+    border: solid 2px firebrick;
 }
 .FoodItemComp img{
     
@@ -18,11 +19,14 @@
 }
 .FoodItemText{
     flex: .5;
-    flex-direction: column;
+    flex-direction: row;
 }
 .FoodItemText h1{
-    font-size: smaller;
-    font-weight: bolder;
+    font-size: x-small;
+    font-weight: bold;
+}
+.FoodItemText #desc{
+    font-size: xx-small;
 }
 .FoodItemComp #AddItem{
     width: 8vw;

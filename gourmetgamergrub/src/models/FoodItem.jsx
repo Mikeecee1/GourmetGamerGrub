@@ -3,8 +3,9 @@
  * Template for food items sold
  */
 class FoodItem{
+    static foodID = 1; //static variable to add unique id for each item
     constructor( name, price,  description, image, category){
-        // this.id = id;   // not sure if needed atm
+        this.id = foodID;   // not sure if needed atm
         this.name = name;
         this.price = price;
         // this.options = options; implement after other functions work
@@ -12,6 +13,7 @@ class FoodItem{
         this.image = image;
         this.description = description;
         this.category = category;
+        foodID++;
     }
 
     //getters & setters
@@ -19,9 +21,9 @@ class FoodItem{
      * 
      * @returns id of food item
      */
-    // getId(){
-    //     return this.id
-    // }
+    getId(){
+        return this.id
+    }
     /**
      * 
      * @returns name of item 

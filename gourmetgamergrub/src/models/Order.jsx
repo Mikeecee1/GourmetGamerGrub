@@ -1,5 +1,7 @@
 // shopping basket functinality
 
+import FoodItem from "./FoodItem";
+
 
 class Order {
     /**
@@ -7,20 +9,20 @@ class Order {
      */
     static orderNum = 1
     //constructor
-    constructor(customer) {
-        this.customer = customer;//maybe customer id
+    constructor() {
+        //maybe customer id
         this.orderId = orderNum;
-        this.items = {}
+        this.items = [];
         Order.orderNum++; //increments orderNum so it is unique for each order
     }
 
     // getters, setter, methods
     /**
-     * returns customer/ customer id of order
+     * returns customer/ customer id of order - implement later
      */
-    getCustomer(){
-        return this.customer; // maybe customer id?
-    }
+    // getCustomer(){
+    //     return this.customer; // maybe customer id?
+    // }
     
     /**
      * 
@@ -37,25 +39,33 @@ class Order {
     }
     /**
      * 
-     * @param checks if food is already in order, increments if not
+     * @param checks if food is already in order increments quantity if not adds item to array
      */
-    addItem(food){
-        if(!this.items.includes(food)){
-            this.items[food] = 1;
+    addItem(foodItem){  // food_id maybe
+        if(this.items.some(item => item.id === foodItem.getId())){
+            this.items.forEach(itm =>{
+                if(itm.id === foodItem.getId()){
+                   itm.quantity ++;
+                }
+            })
         } else {
-            this.items[food] ++;
+            this.items.push({id: foodItem.getId(), name: foodItem.getName(), price: foodItem.getPrice(), quantity: 1});
         }
     }
     /**
      * 
      * decrement the number of an item in basket - removes it if 0 of item left
      */
-    removeItem(food){
-        if(this.items.includes(food)){
-            this.items[food] -= 1;
-        }
-        if(this.items[food] == 0){
-            delete this.items.food;
+    removeItem(foodItem){
+        if(this.items.some(item => item.id === foodItem.getId())){
+            this.items.forEach((itm, index) =>{
+                if(itm.id === foodItem.getId()){
+                   itm.quantity--;               
+                }
+                if(itm.quantity == 0){
+                    this.items.slice(index, 1);  // remove item from array when quantity is 0
+                }
+            })
         }
     }
     /**
@@ -63,11 +73,10 @@ class Order {
      */
     getTotal(){
         let total = 0;
-        for(const[key, value] of Object.entries(this.items)){
-            total += key.getPrice() * value;
-        }
+        this.items.forEach((item) => 
+            total += item.price * item.quantity
+        );
         return total;
-
     }
 }
 

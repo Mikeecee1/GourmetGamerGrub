@@ -15,7 +15,7 @@ function App() {
   const [catMenu, setCatMenu] = useState(mainsArray)
   const [catArray, setCatArray] = useState([0,1,2,3])
   
-
+  const shoppingBasket = [];
   //functions
   // function showMenu(){}
 
@@ -32,8 +32,8 @@ function App() {
          (  
              
             mainsArray.map((item, index) => {
-              console.log(item.getName())
-            //  const tempItem = new FoodIteim(item.name, item.price, item.description, item.image, item.category)
+              // console.log(item.getName())
+            
              return (
               
               <FoodItemPanel foodName={ item.getName()} foodImage={item.getImage()} foodDesc={item.getDescription()}/>

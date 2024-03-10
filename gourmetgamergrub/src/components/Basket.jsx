@@ -1,7 +1,7 @@
 //  holds the data for items in shopping list(using Order.jsx) and displays total cost
 import './BasketStyles.css'
 
-function Basket(){
+function Basket(props){
     //vars & functions
     
     
@@ -10,7 +10,11 @@ function Basket(){
         <div className='order'>
         <h1>Your Order</h1>
         {/* //map function to display order items */}
-        <h2>Order Total:  £</h2>
+        <h2>Order Total:  £{props.totalVal}</h2>
+        {props.basketItems.map((item) =>{
+            console.log('Item: ', item.name, 'Price: ', item.price, 'Quantity: ', item.quantity)
+        }
+        )}
         </div>
     )
     

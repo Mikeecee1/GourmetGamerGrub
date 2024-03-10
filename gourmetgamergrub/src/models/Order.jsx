@@ -11,7 +11,7 @@ class Order {
     //constructor
     constructor() {
         //maybe customer id
-        this.orderId = orderNum;
+        this.orderId = Order.orderNum;
         this.items = [];
         Order.orderNum++; //increments orderNum so it is unique for each order
     }
@@ -35,17 +35,17 @@ class Order {
      *  need to change this to get key and value pairs -- may be better with map
      */
     getItems(){
-        return items
+        return this.items
     }
     /**
      * 
      * @param checks if food is already in order increments quantity if not adds item to array
      */
     addItem(foodItem){  // food_id maybe
-        if(this.items.some(item => item.id === foodItem.getId())){
-            this.items.forEach(itm =>{
-                if(itm.id === foodItem.getId()){
-                   itm.quantity ++;
+        if(this.items.some(obj => obj.id === foodItem.getId())){
+            this.items.forEach(item =>{
+                if(item.id === foodItem.getId()){
+                   item.quantity ++;
                 }
             })
         } else {
@@ -57,12 +57,12 @@ class Order {
      * decrement the number of an item in basket - removes it if 0 of item left
      */
     removeItem(foodItem){
-        if(this.items.some(item => item.id === foodItem.getId())){
-            this.items.forEach((itm, index) =>{
-                if(itm.id === foodItem.getId()){
-                   itm.quantity--;               
+        if(this.items.some(obj => obj.id === foodItem.getId())){
+            this.items.forEach((item, index) =>{
+                if(item.id === foodItem.getId()){
+                   item.quantity--;               
                 }
-                if(itm.quantity == 0){
+                if(item.quantity == 0){
                     this.items.slice(index, 1);  // remove item from array when quantity is 0
                 }
             })

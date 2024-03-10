@@ -5,7 +5,7 @@
 class FoodItem{
     static foodID = 1; //static variable to add unique id for each item
     constructor( name, price,  description, image, category){
-        this.id = foodID;   // not sure if needed atm
+        this.id = FoodItem.foodID;   // not sure if needed atm
         this.name = name;
         this.price = price;
         // this.options = options; implement after other functions work
@@ -13,7 +13,7 @@ class FoodItem{
         this.image = image;
         this.description = description;
         this.category = category;
-        foodID++;
+        FoodItem.foodID++;
     }
 
     //getters & setters

@@ -7,14 +7,14 @@ function FoodItemPanel(props){
 //html
 return(
     <div className='FoodItemComp'>
-        <img src={props.foodImage} onClick=''></img>
+        <img src={props.foodImage} ></img>
         <div className='FoodItemText'>
             <h1>{props.foodName}</h1>  
             <p id='desc'>{props.foodDesc}</p>
         </div>
         <div className='FoodItemButtons'>
-            <button id='AddItem' onClick=''>+</button>
-            <button id='RemoveItem' onClick=''>-</button>
+            <button id='AddItem' onClick={props.add}>+</button>
+            <button id='RemoveItem' onClick={props.remove}>-</button>
         </div>
     </div>
 )

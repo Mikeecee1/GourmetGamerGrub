@@ -7,6 +7,7 @@ import mainsArray from './models/Categories';
 import FoodItemPanel from './components/FoodItemPanel';
 import FoodItem from './models/FoodItem';
 import imgArray from './images/images';
+import Order from './models/Order';
 
 function App() {
 
@@ -15,9 +16,14 @@ function App() {
   const [catMenu, setCatMenu] = useState(mainsArray)
   const [catArray, setCatArray] = useState([0,1,2,3])
   
-  const shoppingBasket = [];
+  
+  const [order, setOrder] = useState(new Order());
   //functions
   // function showMenu(){}
+  
+  
+  console.log(order.getItems())
+  console.log(order.getTotal())
 
   return (
     <div className="App">
@@ -36,7 +42,7 @@ function App() {
             
              return (
               
-              <FoodItemPanel foodName={ item.getName()} foodImage={item.getImage()} foodDesc={item.getDescription()}/>
+              <FoodItemPanel foodName={ item.getName()} foodImage={item.getImage()} foodDesc={item.getDescription()} add={() => order.addItem(item)} remove={() => order.removeItem(item)}/>
              )
             }
             )
@@ -53,7 +59,8 @@ function App() {
         </div>
 
         <div className="basket">
-          <Basket/>
+          <Basket totalVal={order.getTotal()} basketItems={order.getItems()} />
+          
         </div>
         
       </header>

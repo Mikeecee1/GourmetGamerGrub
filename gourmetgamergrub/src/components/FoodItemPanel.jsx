@@ -13,8 +13,8 @@ return(
             <p id='desc'>{props.foodDesc}</p>
         </div>
         <div className='FoodItemButtons'>
-            <button id='AddItem' onClick={props.add}>+</button>
-            <button id='RemoveItem' onClick={props.remove}>-</button>
+            <button id='AddItem' onClick={() => props.add}>+</button>
+            <button id='RemoveItem' onClick={() => props.remove}>-</button>
         </div>
     </div>
 )

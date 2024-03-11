@@ -62,7 +62,7 @@ class Order {
                 if(item.id === foodItem.getId()){
                    item.quantity--;               
                 }
-                if(item.quantity == 0){
+                if(item.quantity < 1){
                     this.items.slice(index, 1);  // remove item from array when quantity is 0
                 }
             })

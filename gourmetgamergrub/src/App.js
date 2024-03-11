@@ -42,7 +42,7 @@ function App() {
             
              return (
               
-              <FoodItemPanel foodName={ item.getName()} foodImage={item.getImage()} foodDesc={item.getDescription()} add={() => order.addItem(item)} remove={() => order.removeItem(item)}/>
+              <FoodItemPanel foodName={ item.getName()} foodImage={item.getImage()} foodDesc={item.getDescription()} add={order.addItem(item)} foodId={item.getId()} remove={order.removeItem(item)}/>
              )
             }
             )
@@ -59,7 +59,7 @@ function App() {
         </div>
 
         <div className="basket">
-          <Basket totalVal={order.getTotal()} basketItems={order.getItems()} />
+          <Basket totalVal={order.getTotal} basketItems={order.getItems} />
           
         </div>
         

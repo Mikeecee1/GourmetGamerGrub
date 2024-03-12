@@ -11,8 +11,11 @@ function Basket(props){
         <h1>Your Order</h1>
         {/* //map function to display order items */}
         <h2>Order Total:  £{props.totalVal}</h2>
-        {() => props.basketItems.map((item) =>{
-            console.log( 'ID: ', item.id, 'Item: ', item.name, 'Price: ', item.price, 'Quantity: ', item.quantity)
+        {props.basketItems.map((item) =>{
+            return
+            ( 
+            <p> 'ID: ',{ item.id}, 'Item: ', {item.name}, 'Price: ', {item.price}, 'Quantity: ', {item.quantity}</p>
+            )
         }
         )}
         </div>

@@ -1,13 +1,13 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { useState } from 'react';
 import CategoryPanel from './components/CategoryPanel';
 import Basket from './components/Basket';
 import mainsArray from './models/Categories';
 import FoodItemPanel from './components/FoodItemPanel';
-import FoodItem from './models/FoodItem';
-import imgArray from './images/images';
-import Order from './models/Order';
+// import FoodItem from './models/FoodItem';
+// import imgArray from './images/images';
+// import Order from './models/Order';
 
 function App() {
 
@@ -28,15 +28,16 @@ function App() {
     // console.log(foodItem)
    
     if(!checkItem(foodItem.getId())){
-       setOrder([
-        ...order,{id: foodItem.getId() - 1, name: foodItem.getName(), price: foodItem.getPrice(), quantity: 1}
-       ])
+        const newItem = {id: foodItem.getId(), name: foodItem.getName(), price: foodItem.getPrice(), quantity: 1}
+        setOrder([...order, newItem])
        console.log(order)
+       updateOrderTotal();
     } else {
       setOrder( order.map ((item) => item.id === foodItem.getId()? {...item, quantity: item.quantity  + 1}: item));
       console.log(order)
+      updateOrderTotal();
     }
-    getOrderTotal();
+    
     
   }
   /**
@@ -47,11 +48,13 @@ function App() {
   function removeItem(foodItem){
     console.log(foodItem)
     if(checkItem(foodItem.getId())){
-      setOrder( order.map ((item) => item.id === foodItem.getId? {...item, quantity: item.quantity -1}: item));
+      setOrder( order.map ((item) => item.id === foodItem.getId()? {...item, quantity: (item.quantity = item.quantity -1)}: item));
+      
     }
-    setOrder(order.filter((item) => item.quantity > 0))
-    getOrderTotal();
-    console.log(order)
+    const filteredOrder = order.filter((item) => item.quantity !== 0)
+    setOrder(filteredOrder)
+    updateOrderTotal();
+    // console.log(order)
   }
   //helper functions
   // checks if item is in order
@@ -64,13 +67,12 @@ function App() {
     return false;
   }
   // update total value of order
-  function getOrderTotal(){
+  function updateOrderTotal(){
     let total=0;
     order.forEach((item) => {
-      total += item.quantity * item.price;
+      total += item.quantity * item.price;   
     } )
-    setOrderTotal(total);
-    console.log(orderTotal)
+    setOrderTotal(total);  
   }
   // console.log(order.getItems())
   // console.log(order.getTotal())

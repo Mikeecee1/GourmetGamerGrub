@@ -15,15 +15,63 @@ function App() {
   const [showMenu, setShowMenu] = useState(false)
   const [catMenu, setCatMenu] = useState(mainsArray)
   const [catArray, setCatArray] = useState([0,1,2,3])
-  
-  
-  const [order, setOrder] = useState(new Order());
+  const [order, setOrder] = useState([]);
+  const [orderTotal, setOrderTotal] = useState(0);
   //functions
-  // function showMenu(){}
+  /**
+   * 
+   * @param {*} foodItem adds food Item to order or increments amount if already in order
+   * updates state of order and total
+   */
+  function addItem(foodItem){
+    console.log(order)
+    if(!checkItem(foodItem.getId())){
+       setOrder([
+        ...order,{id: foodItem.getId(), name: foodItem.getName(), price: foodItem.getPrice(), quantity: 1}
+       ])
+       console.log(order)
+    } else {
+      setOrder( order.map ((item) => item.id === foodItem.getId()? {...item, quantity: item.quantity  + 1}: item));
+      console.log(order)
+    }
+    setOrderTotal(getOrderTotal());
+    console.log(order)
+    console.log(orderTotal)
+  }
+  /**
+   * 
+   * @param {*} foodItem removes 1 from quantity from item if it is in order- returns filtered order of items 
+   * with quantity >0
+   */
+  function removeItem(itemId){
+    if(checkItem(itemId)){
+      setOrder( order.map (item => item.id === itemId? {...item, quantity: item.quantity  - 1}: item));
+    }
+    setOrder(order.filter((item) => item.quantity > 0))
+    getOrderTotal();
+    console.log(order)
+  }
+  //helper functions
+  // checks if item is in order
   
-  
-  console.log(order.getItems())
-  console.log(order.getTotal())
+  function checkItem(itemId){
+    if (order.some((item) => itemId === item.id))
+    {
+      return true;
+    }
+    return false;
+  }
+  // update total value of order
+  function getOrderTotal(){
+    let total=0;
+    for(let item in order){
+      total += item.quantity * item.price;
+    } 
+    setOrderTotal(total);
+    console.log(orderTotal)
+  }
+  // console.log(order.getItems())
+  // console.log(order.getTotal())
 
   return (
     <div className="App">
@@ -42,7 +90,7 @@ function App() {
             
              return (
               
-              <FoodItemPanel foodName={ item.getName()} foodImage={item.getImage()} foodDesc={item.getDescription()} add={order.addItem(item)} foodId={item.getId()} remove={order.removeItem(item)}/>
+              <FoodItemPanel foodName={ item.getName()} foodImage={item.getImage()} foodDesc={item.getDescription()}  foodId={item.getId()} addItem={() => addItem(item)} removeItem={()=> removeItem(item.getId())}/>
              )
             }
             )
@@ -59,7 +107,7 @@ function App() {
         </div>
 
         <div className="basket">
-          <Basket totalVal={order.getTotal} basketItems={order.getItems} />
+          <Basket totalVal={orderTotal} basketItems={order} />
           
         </div>
         

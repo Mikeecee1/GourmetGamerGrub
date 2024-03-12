@@ -24,28 +24,30 @@ function App() {
    * updates state of order and total
    */
   function addItem(foodItem){
-    console.log(order)
+    // console.log(order)
+    // console.log(foodItem)
+   
     if(!checkItem(foodItem.getId())){
        setOrder([
-        ...order,{id: foodItem.getId(), name: foodItem.getName(), price: foodItem.getPrice(), quantity: 1}
+        ...order,{id: foodItem.getId() - 1, name: foodItem.getName(), price: foodItem.getPrice(), quantity: 1}
        ])
        console.log(order)
     } else {
       setOrder( order.map ((item) => item.id === foodItem.getId()? {...item, quantity: item.quantity  + 1}: item));
       console.log(order)
     }
-    setOrderTotal(getOrderTotal());
-    console.log(order)
-    console.log(orderTotal)
+    getOrderTotal();
+    
   }
   /**
    * 
    * @param {*} foodItem removes 1 from quantity from item if it is in order- returns filtered order of items 
    * with quantity >0
    */
-  function removeItem(itemId){
-    if(checkItem(itemId)){
-      setOrder( order.map (item => item.id === itemId? {...item, quantity: item.quantity  - 1}: item));
+  function removeItem(foodItem){
+    console.log(foodItem)
+    if(checkItem(foodItem.getId())){
+      setOrder( order.map ((item) => item.id === foodItem.getId? {...item, quantity: item.quantity -1}: item));
     }
     setOrder(order.filter((item) => item.quantity > 0))
     getOrderTotal();
@@ -64,9 +66,9 @@ function App() {
   // update total value of order
   function getOrderTotal(){
     let total=0;
-    for(let item in order){
+    order.forEach((item) => {
       total += item.quantity * item.price;
-    } 
+    } )
     setOrderTotal(total);
     console.log(orderTotal)
   }
@@ -90,7 +92,7 @@ function App() {
             
              return (
               
-              <FoodItemPanel foodName={ item.getName()} foodImage={item.getImage()} foodDesc={item.getDescription()}  foodId={item.getId()} addItem={() => addItem(item)} removeItem={()=> removeItem(item.getId())}/>
+              <FoodItemPanel foodName={ item.getName()} foodImage={item.getImage()} foodDesc={item.getDescription()}  foodId={item.getId()} addItem={() => addItem(item)} removeItem={()=> removeItem(item)}/>
              )
             }
             )

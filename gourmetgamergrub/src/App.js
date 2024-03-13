@@ -39,7 +39,7 @@ function App() {
       newOrder = order.map ((item) => item.id === foodItem.getId()? {...item, quantity: item.quantity  + 1}: item);
       setOrder(newOrder)
     }
-    updateOrderTotal();
+    updateOrderTotal(newOrder);
   }
   /**
    * 
@@ -53,7 +53,7 @@ function App() {
     }
     const filteredOrder = order.filter((item) => item.quantity !== 0)
     setOrder(filteredOrder)
-    updateOrderTotal();
+    updateOrderTotal(filteredOrder);
     
   }
   //helper functions
@@ -67,10 +67,9 @@ function App() {
     return false;
   }
   // update total value of order
-  function updateOrderTotal(){
-    const tempArray = order;
+  function updateOrderTotal(ord){  
     let total=0;
-    tempArray.forEach((item) => {
+    ord.forEach((item) => {
       total += item.quantity * item.price;   
     } )
     setOrderTotal(total);  

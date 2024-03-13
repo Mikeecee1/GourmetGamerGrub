@@ -1,6 +1,6 @@
 
 import './App.css';
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 import CategoryPanel from './components/CategoryPanel';
 import Basket from './components/Basket';
 import mainsArray from './models/Categories';
@@ -14,9 +14,10 @@ function App() {
   //variables
   const [showMenu, setShowMenu] = useState(false)
   const [catMenu, setCatMenu] = useState(mainsArray)
-  const [catArray, setCatArray] = useState([0,1,2,3])
+  // const [catArray, setCatArray] = useState([0,1,2,3])
   const [order, setOrder] = useState([]);
   const [orderTotal, setOrderTotal] = useState(0);
+  
   //functions
   /**
    * 
@@ -24,21 +25,21 @@ function App() {
    * updates state of order and total
    */
   function addItem(foodItem){
-    // console.log(order)
-    // console.log(foodItem)
-   
+    let newOrder = []
     if(!checkItem(foodItem.getId())){
-        const newItem = {id: foodItem.getId(), name: foodItem.getName(), price: foodItem.getPrice(), quantity: 1}
-        setOrder([...order, newItem])
-       console.log(order)
-       updateOrderTotal();
+        const newItem = {id: foodItem.getId(), name: foodItem.getName(), price: foodItem.getPrice(), quantity: 1}  
+        if(order.length === 0){
+          newOrder  =  [newItem]   
+          setOrder(newOrder)
+        } else {    
+          newOrder =  [...order,newItem]
+          setOrder(newOrder)      
+        } 
     } else {
-      setOrder( order.map ((item) => item.id === foodItem.getId()? {...item, quantity: item.quantity  + 1}: item));
-      console.log(order)
-      updateOrderTotal();
+      newOrder = order.map ((item) => item.id === foodItem.getId()? {...item, quantity: item.quantity  + 1}: item);
+      setOrder(newOrder)
     }
-    
-    
+    updateOrderTotal();
   }
   /**
    * 
@@ -46,15 +47,14 @@ function App() {
    * with quantity >0
    */
   function removeItem(foodItem){
-    console.log(foodItem)
+    // console.log(foodItem)
     if(checkItem(foodItem.getId())){
-      setOrder( order.map ((item) => item.id === foodItem.getId()? {...item, quantity: (item.quantity = item.quantity -1)}: item));
-      
+      setOrder( order.map ((item) => item.id === foodItem.getId()? {...item, quantity: (item.quantity = item.quantity -1)}: item));  
     }
     const filteredOrder = order.filter((item) => item.quantity !== 0)
     setOrder(filteredOrder)
     updateOrderTotal();
-    // console.log(order)
+    
   }
   //helper functions
   // checks if item is in order
@@ -68,8 +68,9 @@ function App() {
   }
   // update total value of order
   function updateOrderTotal(){
+    const tempArray = order;
     let total=0;
-    order.forEach((item) => {
+    tempArray.forEach((item) => {
       total += item.quantity * item.price;   
     } )
     setOrderTotal(total);  
@@ -83,7 +84,7 @@ function App() {
         <div className="banner">
           <h1>GourmetGamerGrub</h1>
         </div>
-
+        
         <div className="menu">
         {/* conditional rendeering for menu and category displays */}
         { showMenu ? 

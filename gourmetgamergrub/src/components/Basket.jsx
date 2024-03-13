@@ -8,19 +8,19 @@ function Basket(props){
     //html
     return(
         <div className='order'>
-        <h1>Your Order</h1>
+        <h4>Your Order</h4>
         {/* //map function to display order items */}
-        <h2>Order Total:  £{props.totalVal}</h2>
+        <p> Item:       Price:       Quantity: </p>
         {props.basketItems.map((item) =>{
-            return
-            ( 
-            <p> 'ID: ',{ item.id}, 'Item: ', {item.name}, 'Price: ', {item.price}, 'Quantity: ', {item.quantity}</p>
+            //  {console.log(basketItems)}
+            return(
+            <p>{item.name}      {item.price}      {item.quantity}</p>
             )
         }
         )}
+        <h4>Order Total:  £{props.totalVal}</h4>
         </div>
-    )
-    
+        ) 
     }
 
     export default Basket

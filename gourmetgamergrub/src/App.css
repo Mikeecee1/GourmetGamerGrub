@@ -47,16 +47,18 @@
   background-color:goldenrod;
   align-items: center;
   justify-content: center;
-  overflow-y: scroll;
+  overflow-y: scroll; 
+  
 }
 .basket{
   width: 96vw;
-  height: 25vh;
+  height: 28vh;
   display: block;
   border-radius: 2vh;
   border: .5vh solid firebrick;
   background-color:goldenrod;
   margin-bottom: .5vh;
+  text-align: left;
 }
 
 .App-link {

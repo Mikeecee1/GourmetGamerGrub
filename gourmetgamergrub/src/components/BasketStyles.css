@@ -1,5 +1,24 @@
-.order p{
+
+.scrollItems{
     font-size: xx-small;
-    text-align: left;
-    margin-left: 2vw;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    width: 94vw;
+    height: 12vh;
+    background-color: antiquewhite;
+    color:firebrick;
+}
+.scrollItems th{
+    position:sticky;
+    top:0;
+}
+th,
+  td {
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+    padding: 4px 6px;
+  }
+.showTotal{
+    margin-bottom: .5vh;
+    margin-top: .5vh;
 }

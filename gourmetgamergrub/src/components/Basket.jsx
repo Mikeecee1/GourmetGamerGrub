@@ -8,7 +8,7 @@ function Basket(props){
     //html
     return(
         <div className='order'>
-        <h6>Your Order</h6>
+        <h4>Your Order</h4>
         {/* //map function to display order items */}
        
         <div className='scrollItems'>

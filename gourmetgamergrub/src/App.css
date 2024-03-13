@@ -46,8 +46,9 @@
   border: .5vh solid firebrick;
   background-color:goldenrod;
   align-items: center;
-  justify-content: center;
-  overflow-y: scroll; 
+  /* justify-content: center; */
+  overflow-y: scroll;
+  
   
 }
 .basket{

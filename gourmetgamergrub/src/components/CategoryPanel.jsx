@@ -1,19 +1,23 @@
-import imgArray from '../images/images'
+
 import './CategoryPanelStyles.css'
 
 function CategoryPanel(props){
     //functions here
 
-
+    
 
     //html
     return(
-        <div className='categories'>
-            <img id='cat1' onClick={props.menuItems} src={imgArray[0]}/>
-            <img id='cat2' onClick={props.menuItems} src={imgArray[1]}/>
-            <img id='cat2' onClick={props.menuItems} src={imgArray[2]}/>
-            <img id='cat2' onClick={props.menuItems} src={imgArray[3]}/>
+        <div className='categories' onClick={props.selectedMenu}>
+           
+            
+                <img id='image1'  src={props.catImage[0]}/>
+                <img id='image2'  src={props.catImage[1]}/>
+                <h2>{props.menuName}</h2>
+                
 
+                
+        
         </div>
     )
 }

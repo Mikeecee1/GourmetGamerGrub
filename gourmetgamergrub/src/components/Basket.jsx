@@ -8,23 +8,25 @@ function Basket(props){
     //html
     return(
         <div className='order'>
-        <h4>Your Order</h4>
+        {/* <h4>Your Order</h4> */}
         {/* //map function to display order items */}
        
+            <h4>Your Order</h4>
+           
         <div className='scrollItems'>
             <thead>
                 <tr>
-                    <th>Item</th>
-                    <th>Price</th>
+                    <th id='headDescript'>Item</th>
+                    <th>Item £     </th>
                     <th>Quantity</th>
-                    <th>Sub-Total</th>
+                    <th>Sub Total</th>
                 </tr>
             </thead>
             <tbody>
         {props.basketItems.map((item) =>{
            
             return(
-            <><tr><td>{item.name}</td><td>{item.price}</td><td>{item.quantity}</td><td>{item.quantity*item.price}</td></tr></>
+            <><tr><td id='itemDescript'>{item.name}</td><td>{item.price.toFixed(2)}</td><td>{item.quantity}</td><td>{(item.quantity*item.price).toFixed(2)}</td></tr></>
             )
         }
         )}
@@ -32,7 +34,7 @@ function Basket(props){
            </div>
           <div className='footer'>
             <h4 className='showTotal'>Order Total:  £{props.totalVal}</h4>
-            <button className='checkOut' onClick=''>CheckOut</button>
+            <button id='checkOut' onClick=''>CheckOut</button>
           </div>
         </div>
         ) 

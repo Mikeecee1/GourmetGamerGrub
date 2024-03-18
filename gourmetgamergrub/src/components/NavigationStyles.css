@@ -1,0 +1,16 @@
+.navBar{
+    width:20%;
+    height: 95%;
+    
+    margin-bottom: 1vh;
+}
+.navBar button{
+    height:100%;
+    width:96%;
+    background-color: antiquewhite;
+    color:firebrick;
+    border-style:solid 8px ;
+    border-color: firebrick;
+    border-radius: 48%;
+    font-weight: bolder;
+}

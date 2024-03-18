@@ -10,12 +10,14 @@ h4{
     font-size: x-small;
     overflow-y: scroll;
     scroll-behavior: smooth;
-    width: 96vw;
+    width: 99.5%;
     height: 18vh;
     background-color: antiquewhite;
     color:firebrick;
     border:solid firebrick 2px;
-    justify-content: center;
+    /* justify-content: center; */
+    align-items: center;
+    
 }
 .scrollItems { 
     th
@@ -23,29 +25,38 @@ h4{
     top:0;
     background-color: firebrick;
     color: antiquewhite;
-    height: 1vh;
+    height: 10px;
     }
 }
+
 th,
   td {
     border-bottom: 1px solid #ddd;
     margin: 0;
-    padding:4px 7.6vw 4px ;
+    padding:2px 16px 2px 4px;
+    width:98%;
+    
+    /* column-width: 20%; */
+    
   }
 .showTotal{
     margin-bottom: .5vh;
     margin-top: .5vh;
 }
+
 .footer{
     display: flex;
     flex-direction: row;
+    /* justify-content: center; */
+    align-items: center; 
 }
 .footer button{
-   
-    margin-left: 15vw;
-    margin-top: 1vh;
-    width: 40%;
-    height:80%;
+    
+    margin-left: 24vw;
+    margin-top: .5vh;
+    margin-bottom: .5vh;
+    width: 25%;
+    height:75%;
     background-color:antiquewhite;
     color: firebrick;
     border-radius: 4vh;

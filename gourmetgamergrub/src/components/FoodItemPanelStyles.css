@@ -1,25 +1,34 @@
 .FoodItemComp{
-    height: 12vh;
-    width: 98%;
+    height: 22%;
+    width: 96%;
     display: flex;
-    flex-direction: row;
+    flex-direction:row;
     background-color: antiquewhite;
     color:darkslategray;
-    justify-content: center;
+    
     align-items: center;
-    /* margin-top: 1vh; */
-    /* margin-bottom: 1vh; */
+    margin-top: 2px;
+    margin-bottom: 2px;
     border: solid 2px firebrick;
+    border-radius: 12px;
+   
 }
 .FoodItemComp img{
     
-    width: 24%;
-    height: 88%;
-    border: .5vh solid firebrick;
+    width: 25%;
+    height: 90%;
+    border: 2px solid firebrick;
+    margin-left: 4px;
+    margin-right: 4px;
+    border-radius: 6px;
 }
-.FoodItemText{
+/* .FoodItemText{
     flex: .5;
     flex-direction: row;
+} */
+.FoodItemText{
+    flex:50%;
+    text-align: center;
 }
 .FoodItemText h1{
     font-size: x-small;
@@ -28,29 +37,38 @@
 .FoodItemText #desc{
     font-size: xx-small;
 }
+
+/* .FoodItemButtons{
+    width:10%;
+   
+} */
 .FoodItemComp #AddItem{
-    width: 8vw;
-    height: 5vh;
-    border-radius: 10%;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
     background-color:darkolivegreen;
     color: black;
     font-size: larger;
     font-weight: bold;
+    margin-bottom: 6px;
     
 }
 .FoodItemComp #RemoveItem{
-    width: 8vw;
-    height: 5vh;
-    border-radius: 10%;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
     background-color: firebrick;
     color: black;
     font-size: larger;
     font-weight: bold;
+    
     
 }
 .FoodItemText p{
     font-size: small;
 }
 .FoodItemButtons{
-    flex: .3;
+   flex:10%;
+   margin-right: 10px;
+   
 }

@@ -3,27 +3,65 @@ import './App.css';
 import { useState , useEffect} from 'react';
 import CategoryPanel from './components/CategoryPanel';
 import Basket from './components/Basket';
-import mainsArray from './models/Categories';
 import FoodItemPanel from './components/FoodItemPanel';
-// import FoodItem from './models/FoodItem';
-// import imgArray from './images/images';
-// import Order from './models/Order';
+import menuArray, { getMenuItems } from './models/MenuItems';
+import categoryArray from './models/Category';
+import Navigation from './components/Navigation';
+
+
 
 function App() {
 
   //variables
   const [showMenu, setShowMenu] = useState(false)
-  const [catMenu, setCatMenu] = useState(mainsArray)
-  // const [catArray, setCatArray] = useState([0,1,2,3])
+  const [catMenu, setCatMenu] = useState([])
   const [order, setOrder] = useState([]);
   const [orderTotal, setOrderTotal] = useState(0);
+  const [categories, setCategories] = useState(categoryArray);
+  const [navigation, setNavigation] = useState([{id: 0, name: 'Home'}])
+  
   
   //functions
+  /**
+   * 
+   * @param {*} sets the menu to show according to selected menu
+   */
+  function selectCategory(category){
+    console.log(category)
+    if(category === 0){
+      setShowMenu(false)
+    }
+    else{
+    let menuToShow;
+    menuToShow = getMenuItems(category);
+   
+    setNavBar(category);
+    
+    setCatMenu(menuToShow);
+    setShowMenu(true);
+   
+  }
+  }
+  function setNavBar(category){
+    let navArray = [{id:0, name:'Home'}]
+    /**
+     * helper function sets items for navigaton bar - Home + menus not selected
+     */
+    categoryArray.map((cat) =>
+    {
+      navArray = [...navArray,{id:cat.getID(),name: cat.getName()}]
+      
+    })
+    navArray = navArray.filter((item) => item.id != category)
+     setNavigation(navArray)
+  }
+  
   /**
    * 
    * @param {*} foodItem adds food Item to order or increments amount if already in order
    * updates state of order and total
    */
+  
   function addItem(foodItem){
     let newOrder = []
     if(!checkItem(foodItem.getId())){
@@ -74,41 +112,57 @@ function App() {
     } )
     setOrderTotal(total);  
   }
-  // console.log(order.getItems())
-  // console.log(order.getTotal())
+  
 
   return (
     <div className="App">
       <header className="App-header">
         <div className="banner">
-          <h1>GourmetGamerGrub</h1>
+          <h1 id='bannerTitle'>GourmetGamerGrub</h1>
         </div>
-        
-        <div className="menu">
+        <div className='navigation' style={{height: showMenu ?  '4vh': '0'}}>
+          {showMenu ?  
+       
+          navigation.map((nav) => {
+            return(
+              
+              <Navigation navName={nav.name}  navClick = {() => selectCategory(nav.id) } />
+            )
+          })
+        :
+        null
+        }
+        </div>
+        <div className="menu"style={{height: showMenu ?  '48vh': '52vh'}}>
+          
         {/* conditional rendeering for menu and category displays */}
+
+        
         { showMenu ? 
          (  
              
-            mainsArray.map((item, index) => {
+            catMenu.map((item, index) => {
               // console.log(item.getName())
             
              return (
               
-              <FoodItemPanel foodName={ item.getName()} foodImage={item.getImage()} foodDesc={item.getDescription()}  foodId={item.getId()} addItem={() => addItem(item)} removeItem={()=> removeItem(item)}/>
-             )
-            }
-            )
+              <FoodItemPanel foodName={ item.getName()} foodImage={item.getImage()} foodDesc={item.getDescription()}  foodId={item.getId()} addItem={() => addItem(item)} removeItem={()=> removeItem(item)} foodPrice={item.getPrice()}/>
+             )})
+
          )
-         :
-           
-
-          <CategoryPanel menuItems={() => {setShowMenu(true)}} selectedMenu={catMenu} />
-           
          
-        }
-          
+         :
 
+          (
+            categories.map((category) => {
+           return(
+          <CategoryPanel menuItems={() => {setShowMenu(true)}} selectedMenu={() => selectCategory(category.getID())} catImage={category.getImages()} menuName={category.getName()}/>
+          )})
+         )
+        }  
+   
         </div>
+       
 
         <div className="basket">
           <Basket totalVal={orderTotal} basketItems={order} />

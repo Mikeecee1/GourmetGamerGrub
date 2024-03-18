@@ -1,24 +1,32 @@
 .categories{
-    height: 96%;
+    height: 21%;
     width: 96%;
-    
     background-color: moccasin;
     border: .75vh solid firebrick;
-    border-radius: 1vh;
-    
-    /* justify-content: center;
-    align-items: center; */
-    
-    
-    
+    border-radius: 2vh;
+    margin-top: .5vh; 
+    align-items: center;
+    color: firebrick;
+    align-self: center;
+   
 }
 .categories img{
-    height: 45%;
-    width: 45%;
+    height: 80%;
+    width: 22%;
     border-radius: 2vh;
     border: 2px solid lightcoral;
     margin: 1vh;
-    float: left;
+    
+   
+}
+.categories #image1{
+     float:left;
+}
+.categories #image2{
+    float:right;
+}
+h2{
+    text-decoration: underline;
     
 }
 

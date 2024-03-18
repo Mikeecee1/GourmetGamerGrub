@@ -47,21 +47,21 @@
     height: 26px;
     border-radius: 50%;
     background-color:darkolivegreen;
-    color: black;
+    color: white;
     font-size: larger;
-    font-weight: bold;
+    font-weight: bolder;
     margin-bottom: 6px;
-    
+    line-height: 15px;
 }
 .FoodItemComp #RemoveItem{
     width: 26px;
     height: 26px;
     border-radius: 50%;
     background-color: firebrick;
-    color: black;
-    font-size: larger;
-    font-weight: bold;
-    
+    color: white;
+    font-size: x-large;
+    font-weight: bolder;
+    line-height: 15px;
     
 }
 .FoodItemText p{

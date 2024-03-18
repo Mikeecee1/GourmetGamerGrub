@@ -70,6 +70,11 @@
   margin-bottom: .5vh;
   text-align: left;
 }
+
+.message{
+  width: 96vw;
+  height: 20vh;
+}
 /* 
 .App-link {
   color: #61dafb;

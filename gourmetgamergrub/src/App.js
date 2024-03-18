@@ -13,13 +13,13 @@ import Navigation from './components/Navigation';
 function App() {
 
   //variables
-  const [showMenu, setShowMenu] = useState(false)
-  const [catMenu, setCatMenu] = useState([])
+  const [showMenu, setShowMenu] = useState(false);
+  const [catMenu, setCatMenu] = useState([]);
   const [order, setOrder] = useState([]);
   const [orderTotal, setOrderTotal] = useState(0);
   const [categories, setCategories] = useState(categoryArray);
-  const [navigation, setNavigation] = useState([{id: 0, name: 'Home'}])
-  
+  const [navigation, setNavigation] = useState([{id: 0, name: 'Home'}]);
+  const [checkOut, setCheckOut] = useState(false);
   
   //functions
   /**
@@ -120,6 +120,7 @@ function App() {
         <div className="banner">
           <h1 id='bannerTitle'>GourmetGamerGrub</h1>
         </div>
+        { !checkOut &&
         <div className='navigation' style={{height: showMenu ?  '4vh': '0'}}>
           {showMenu ?  
        
@@ -133,6 +134,8 @@ function App() {
         null
         }
         </div>
+        }
+        { !checkOut &&
         <div className="menu"style={{height: showMenu ?  '48vh': '52vh'}}>
           
         {/* conditional rendeering for menu and category displays */}
@@ -162,12 +165,18 @@ function App() {
         }  
    
         </div>
-       
+        }
 
-        <div className="basket">
-          <Basket totalVal={orderTotal} basketItems={order} />
+        <div className="basket" style={{height: checkOut ?  '60vh': ''}}>
+          <Basket totalVal={orderTotal} basketItems={order} coButton={() => setCheckOut(true)} toggle= {!checkOut}/>
           
         </div>
+        {  checkOut &&
+          <div className='message'>
+                 <h2>Thank You For Your Order</h2>
+                 <h2>Happy Gaming</h2>
+          </div>
+        }
         
       </header>
     </div>

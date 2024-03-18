@@ -3,6 +3,8 @@ import './BasketStyles.css'
 
 function Basket(props){
     //vars & functions
+    // const checkOut = props.toggle;
+    
     
     
     //html
@@ -13,7 +15,7 @@ function Basket(props){
        
             <h4>Your Order</h4>
            
-        <div className='scrollItems'>
+        <div className='scrollItems' style={{height: props.toggle ?  '18vh': '48vh'}}>
             <thead>
                 <tr>
                     <th id='headDescript'>Item</th>
@@ -33,8 +35,12 @@ function Basket(props){
            </tbody>
            </div>
           <div className='footer'>
-            <h4 className='showTotal'>Order Total:  £{props.totalVal}</h4>
-            <button id='checkOut' onClick=''>CheckOut</button>
+            <h4 className='showTotal'>Order Total:  £{props.totalVal.toFixed(2)}</h4>
+            { props.toggle ?
+            <button id='checkOut' onClick={props.coButton} >CheckOut</button>
+            :
+            <button id='endOrder' onClick={props.endOrder}>Complete Order</button>
+            }
           </div>
         </div>
         ) 

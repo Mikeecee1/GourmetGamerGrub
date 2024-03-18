@@ -168,7 +168,9 @@ function App() {
         }
 
         <div className="basket" style={{height: checkOut ?  '60vh': ''}}>
-          <Basket totalVal={orderTotal} basketItems={order} coButton={() => setCheckOut(true)} toggle= {!checkOut}/>
+          
+          <Basket totalVal={orderTotal} basketItems= {order} coButton={() => setCheckOut(true)} toggle= {!checkOut}/>
+          
           
         </div>
         {  checkOut &&

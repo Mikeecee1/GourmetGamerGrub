@@ -24,6 +24,7 @@
   /* font-size: calc(10px + 2vmin); */
   color: white;
   border-radius: 2%;
+  
 }
 .banner {
   height: 15vh;
@@ -35,6 +36,7 @@
   color:bisque;
   border-radius: 2vh;
   text-shadow:2px 2px 2px firebrick;
+  
 }
 
 .menu {

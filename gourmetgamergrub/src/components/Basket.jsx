@@ -32,13 +32,17 @@ function Basket(props){
                 </tr>
             </thead>
             <tbody>
-        {props.basketItems.map((item) =>{
+        { props.basketItems.length > 0 ?
+        props.basketItems.map((item) =>{
            
             return(
             <><tr><td id='itemDescript'>{item.name}</td><td>{item.price.toFixed(2)}</td><td>{item.quantity}</td><td>{(item.quantity*item.price).toFixed(2)}</td></tr></>
             )
         }
-        )}
+        )
+        :
+        <h2>Add Items To Your Basket</h2>
+        }
            </tbody>
            </div>
           <div className='footer'>

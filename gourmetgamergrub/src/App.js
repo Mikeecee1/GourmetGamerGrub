@@ -27,7 +27,7 @@ function App() {
    * @param {*} sets the menu to show according to selected menu
    */
   function selectCategory(category){
-    console.log(category)
+   
     if(category === 0){
       setShowMenu(false)
     }

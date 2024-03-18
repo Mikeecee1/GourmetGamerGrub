@@ -3,8 +3,15 @@ import './BasketStyles.css'
 
 function Basket(props){
     //vars & functions
-    // const checkOut = props.toggle;
-    
+    const setStyle = props.toggle
+    const divStyle1 = {
+        height: '18vh',
+        fontSize: 'x-small'
+    }
+    const divStyle2 = {
+        height: '48vh',
+        fontSize: 'small'
+    }
     
     
     //html
@@ -15,13 +22,13 @@ function Basket(props){
        
             <h4>Your Order</h4>
            
-        <div className='scrollItems' style={{height: props.toggle ?  '18vh': '48vh'}}>
+         <div className='scrollItems'   style={setStyle ? {...divStyle1}: {...divStyle2 }}>
             <thead>
                 <tr>
                     <th id='headDescript'>Item</th>
-                    <th>Item £     </th>
+                    <th>Item</th>
                     <th>Quantity</th>
-                    <th>Sub Total</th>
+                    <th >Sub Total</th>
                 </tr>
             </thead>
             <tbody>

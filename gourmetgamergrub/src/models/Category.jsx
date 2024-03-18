@@ -28,9 +28,9 @@ import imgArray from "../images/images.jsx";
  // category array to be exported - replaced with server code when able to connect
   const categoryArray = [
     new Category(1, 'Mains', imgArray[0], imgArray[1]),
-    new Category(2, 'Sides', imgArray[1], imgArray[0]),
-    new Category(3, 'Desserts', imgArray[2],imgArray[3]),
-    new Category(4, 'Drinks', imgArray[3],imgArray[2])
+    new Category(2, 'Sides', imgArray[2], imgArray[3]),
+    new Category(3, 'Desserts', imgArray[4],imgArray[7]),
+    new Category(4, 'Drinks', imgArray[5],imgArray[6])
 ]
 
 export default categoryArray;

@@ -14,7 +14,7 @@ export async function getCategories() {
  * 
  * @returns returns FoodItems
  */
-export async function getFoodItem() {
+export async function getFoodItems() {
 
     const response = await fetch(
         apiURL + '/FoodItem/'
@@ -22,4 +22,16 @@ export async function getFoodItem() {
     
     return response.json(); 
 
+}
+
+export async function getCategories(){
+
+}
+
+export async function postOrder(){
+
+}
+
+export async function PostOrderItems(){
+    
 }

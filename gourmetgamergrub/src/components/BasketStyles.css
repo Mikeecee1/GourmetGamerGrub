@@ -1,63 +1,176 @@
-.order{
+.order {
     align-items: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    box-sizing: border-box;
 }
-h4{
-    margin-left: 2vw;
-    margin-top: .4vh;
-    margin-bottom: .4vh;
+
+h4 {
+    margin: 0.5rem 1rem 0.25rem 1rem;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: firebrick;
+    text-align: center;
 }
-.scrollItems{
-    font-size: x-small;
-    overflow-y: scroll;
+
+.scrollItems {
+    font-size: clamp(0.7rem, 2vw, 0.9rem);
+    overflow-y: auto;
     scroll-behavior: smooth;
-    width: 99.5%;
-    height:18vh;
+    width: 100%;
+    max-width: 100%;
+    height: calc(100% - 120px);
+    min-height: 100px;
     background-color: antiquewhite;
-    color:firebrick;
-    border:solid firebrick 2px;
-    /* justify-content: center; */
-    align-items: center;
-    
+    color: firebrick;
+    border: solid firebrick 2px;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    box-sizing: border-box;
 }
-.scrollItems { 
-    th
-   { position:sticky;
-    top:0;
+
+.scrollItems table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: inherit;
+}
+
+.scrollItems th {
+    position: sticky;
+    top: 0;
     background-color: firebrick;
     color: antiquewhite;
-    height: 10px;
+    height: auto;
+    padding: 0.5rem 0.25rem;
+    font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+    font-weight: bold;
+}
+
+.scrollItems td {
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+    padding: 0.4rem 0.25rem;
+    text-align: center;
+    font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+}
+
+.showTotal {
+    margin: 0.5rem 0;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-weight: bold;
+    color: firebrick;
+    text-align: center;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 0;
+}
+
+.footer button {
+    width: 50%;
+    max-width: 200px;
+    min-width: 120px;
+    height: 50px;
+    background-color: antiquewhite;
+    color: firebrick;
+    border: 2px solid firebrick;
+    border-radius: 25px;
+    font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footer button:hover {
+    background-color: firebrick;
+    color: antiquewhite;
+    transform: scale(1.05);
+}
+
+.footer button:active {
+    transform: scale(0.95);
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .order {
+        padding: 0.3rem;
+    }
+    
+    h4 {
+        margin: 0.3rem 0.5rem 0.2rem 0.5rem;
+    }
+    
+    .scrollItems {
+        height: calc(100% - 100px);
+        border-radius: 6px;
+    }
+    
+    .scrollItems th,
+    .scrollItems td {
+        padding: 0.3rem 0.15rem;
+    }
+    
+    .footer {
+        padding: 0.3rem 0;
+    }
+    
+    .footer button {
+        height: 45px;
+        min-width: 100px;
+        border-radius: 20px;
     }
 }
 
-th,
-  td {
-    border-bottom: 1px solid #ddd;
-    margin: 0;
-    padding:2px 16px 2px 4px;
-    width:98%;
+@media screen and (max-width: 480px) {
+    .order {
+        padding: 0.25rem;
+    }
     
-    /* column-width: 20%; */
+    h4 {
+        margin: 0.25rem 0.3rem 0.15rem 0.3rem;
+    }
     
-  }
-.showTotal{
-    margin-bottom: .5vh;
-    margin-top: .5vh;
+    .scrollItems {
+        height: calc(100% - 90px);
+        border: solid firebrick 1px;
+        border-radius: 4px;
+    }
+    
+    .scrollItems th,
+    .scrollItems td {
+        padding: 0.2rem 0.1rem;
+    }
+    
+    .footer button {
+        height: 40px;
+        min-width: 90px;
+        border-radius: 15px;
+        width: 60%;
+    }
 }
 
-.footer{
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center; 
-}
-.footer button{
+/* Large screen styles */
+@media screen and (min-width: 1200px) {
+    .order {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
     
-    margin-left: 24vw;
-    margin-top: .5vh;
-    margin-bottom: .5vh;
-    width: 25%;
-    height:75%;
-    background-color:antiquewhite;
-    color: firebrick;
-    border-radius: 4vh;
+    .scrollItems {
+        border-radius: 12px;
+    }
+    
+    .footer button {
+        width: 40%;
+        height: 60px;
+        border-radius: 30px;
+    }
 }

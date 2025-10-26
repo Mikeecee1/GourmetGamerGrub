@@ -1,171 +1,170 @@
-.App {
-  text-align: center;
-  max-width: 100%;
-  overflow-x: hidden;
+/* =========================
+   Gourmet Gamer Grub - App.css (modern responsive)
+   ========================= */
+
+/* Global spacing & type scaling */
+:root {
+  --space-s: clamp(0.25rem, 0.5vw, 0.75rem);
+  --space-m: clamp(0.5rem, 1vw, 1.5rem);
+  --space-l: clamp(1rem, 2vw, 2.5rem);
+  --radius: clamp(10px, 1vw, 20px);
+
+  --fs-s: clamp(0.9rem, 0.8vw, 1.1rem);
+  --fs-m: clamp(1rem, 1vw, 1.3rem);
+  --fs-l: clamp(1.4rem, 2vw, 2rem);
+  --fs-xl: clamp(2rem, 3vw, 3rem);
+
+  --color-bg: chocolate;
+  --color-accent: goldenrod;
+  --color-border: firebrick;
+  --color-text: bisque;
 }
 
+/* App wrapper */
+.App {
+  text-align: center;
+  max-width: 1280px;
+  margin-inline: auto;
+  overflow-x: hidden;
+  padding: var(--space-m);
+  box-sizing: border-box;
+}
+
+/* Header container */
 .App-header {
-  background-color: chocolate;
-  min-height: 100vh;
+  background-color: var(--color-bg);
+  min-height: 100dvh; /* dynamic viewport height for mobile browsers */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   color: white;
-  border-radius: 2%;
-  padding: 1vh 2vw;
+  border-radius: var(--radius);
+  padding: var(--space-l);
   box-sizing: border-box;
 }
+
+/* Banner section */
 .banner {
-  height: 15vh;
-  min-height: 80px;
-  margin-top: 1vh;
   width: 100%;
-  max-width: 96vw;
-  margin-bottom: 0.5vh;
-  background-color: goldenrod;
-  border: 0.5vh solid firebrick;
-  color: bisque;
-  border-radius: 2vh;
-  text-shadow: 2px 2px 2px firebrick;
+  min-height: clamp(80px, 15vh, 160px);
+  margin: var(--space-s) 0 var(--space-m);
+  padding: var(--space-s);
+  background-color: var(--color-accent);
+  border: 0.4vh solid var(--color-border);
+  color: var(--color-text);
+  border-radius: var(--radius);
+  text-shadow: 1px 1px 2px var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .banner h1 {
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: var(--fs-xl);
   margin: 0;
-  padding: 0.5rem;
+  padding: var(--space-s);
 }
 
+/* Navigation row (buttons or links) */
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-s);
+  padding: var(--space-s);
+  width: 100%;
+  max-width: 96%;
+  box-sizing: border-box;
+}
+
+/* Menu grid section */
 .menu {
   width: 100%;
   max-width: 96vw;
-  height: 52vh;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 2vh;
-  margin-bottom: 0.5vh;
-  margin-top: 0.5vh;
-  border: 0.5vh solid firebrick;
-  background-color: goldenrod;
-  align-items: center;
-  overflow-y: auto;
-  padding: 0.5rem;
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-m);
+  border-radius: var(--radius);
+  margin-block: var(--space-s);
+  border: 0.5vh solid var(--color-border);
+  background-color: var(--color-accent);
+  align-items: stretch;
+  padding: var(--space-m);
   box-sizing: border-box;
+  overflow-y: visible;
 }
 
-.navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 96%;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0.5rem 0;
-}
-
+/* Basket / Order section */
 .basket {
   width: 100%;
   max-width: 96vw;
-  height: 28vh;
-  min-height: 200px;
-  display: block;
-  border-radius: 2vh;
-  border: 0.5vh solid firebrick;
-  background-color: goldenrod;
-  margin-bottom: 0.5vh;
+  flex: 0 0 auto;
+  border-radius: var(--radius);
+  border: 0.5vh solid var(--color-border);
+  background-color: var(--color-accent);
+  margin-block: var(--space-s);
   text-align: left;
+  padding: var(--space-m);
   box-sizing: border-box;
 }
 
+/* Message / Info area */
 .message {
   width: 100%;
   max-width: 96vw;
-  height: 21vh;
-  min-height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: var(--space-l);
+  box-sizing: border-box;
 }
 
 .message h2 {
-  font-size: clamp(1.2rem, 3vw, 2rem);
-  margin: 0.5rem 0;
+  font-size: var(--fs-l);
+  margin: var(--space-s) 0;
 }
 
-/* Media Queries for Responsive Design */
-@media screen and (max-width: 768px) {
+/* =========================
+   Responsive Enhancements
+   ========================= */
+
+/* Tablets and up */
+@media (min-width: 768px) {
   .App-header {
-    padding: 0.5vh 1vw;
+    max-width: 900px;
+    margin-inline: auto;
   }
-  
-  .banner {
-    height: 12vh;
-    min-height: 70px;
-  }
-  
-  .menu {
-    height: 45vh;
-    min-height: 350px;
-  }
-  
-  .basket {
-    height: 35vh;
-    min-height: 250px;
-  }
-  
+
   .navigation {
-    flex-direction: column;
-    gap: 0.3rem;
+    justify-content: space-between;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .App-header {
-    padding: 0.5vh 0.5vw;
-  }
-  
-  .banner {
-    height: 10vh;
-    min-height: 60px;
-    border: 0.3vh solid firebrick;
-  }
-  
-  .menu {
-    height: 50vh;
-    min-height: 300px;
-    border: 0.3vh solid firebrick;
-  }
-  
-  .basket {
-    height: 30vh;
-    min-height: 200px;
-    border: 0.3vh solid firebrick;
-  }
-}
-
-@media screen and (min-width: 1200px) {
+/* Desktops and large screens */
+@media (min-width: 1200px) {
   .App-header {
     max-width: 1200px;
-    margin: 0 auto;
   }
+
+  /* Optionally, place basket next to menu on wide screens */
+  .App-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+      "banner banner"
+      "menu basket"
+      "message message";
+    gap: var(--space-m);
+    align-items: start;
+  }
+
+  .banner { grid-area: banner; }
+  .menu { grid-area: menu; }
+  .basket { grid-area: basket; position: sticky; top: var(--space-m); }
+  .message { grid-area: message; }
 }
-/* 
-.App-link {
-  color: #61dafb;
-} */
-/* 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

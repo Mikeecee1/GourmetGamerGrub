@@ -1,8 +1,12 @@
-/* =========================
-   Gourmet Gamer Grub - App.css (modern responsive)
-   ========================= */
+/* =======================================================================
+   Gourmet Gamer Grub — Single Consolidated App.css
+   - Includes global layout and component styles (Navigation, Category,
+     FoodItem, Basket) with responsive, fluid sizing.
+   ======================================================================= */
 
-/* Global spacing & type scaling */
+/* -------------------------
+   Design tokens & scaffolding
+   ------------------------- */
 :root {
   --space-s: clamp(0.25rem, 0.5vw, 0.75rem);
   --space-m: clamp(0.5rem, 1vw, 1.5rem);
@@ -20,7 +24,7 @@
   --color-text: bisque;
 }
 
-/* App wrapper */
+/* Wrapper */
 .App {
   text-align: center;
   max-width: 1280px;
@@ -30,11 +34,11 @@
   box-sizing: border-box;
 }
 
-/* Header container */
+/* Main shell */
 .App-header {
   background-color: var(--color-bg);
-  min-height: 100dvh; /* dynamic viewport height for mobile browsers */
-  display: flex;
+  min-height: 100dvh;               /* dynamic viewport height for mobiles */
+  display: flex;                     /* becomes grid on wide screens */
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -42,9 +46,12 @@
   border-radius: var(--radius);
   padding: var(--space-l);
   box-sizing: border-box;
+  min-width: 0;                      /* allow children to shrink/wrap */
 }
 
-/* Banner section */
+/* -------------------------
+   Banner
+   ------------------------- */
 .banner {
   width: 100%;
   min-height: clamp(80px, 15vh, 160px);
@@ -67,7 +74,10 @@
   padding: var(--space-s);
 }
 
-/* Navigation row (buttons or links) */
+/* -------------------------
+   Navigation (consolidated)
+   ------------------------- */
+/* container row (from your App layout) */
 .navigation {
   display: flex;
   flex-wrap: wrap;
@@ -79,7 +89,37 @@
   box-sizing: border-box;
 }
 
-/* Menu grid section */
+/* individual nav tile (formerly .navBar) */
+.navBar {
+  width: 100%;
+  min-width: 120px;
+  max-width: 220px;
+  margin-bottom: 0.75rem;
+  flex: 1 1 200px;
+}
+
+/* nav button (visible on small screens, no full-height stretching) */
+.navBar button {
+  width: 100%;
+  min-height: clamp(42px, 6.5vh, 64px);
+  background-color: antiquewhite;
+  color: var(--color-border);
+  border: 3px solid var(--color-border);
+  border-radius: 18px;
+  font-weight: 800;
+  font-size: clamp(0.8rem, 2.2vw, 1rem);
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.navBar button:hover { background-color: var(--color-border); color: antiquewhite; transform: translateY(-1px); }
+.navBar button:active { transform: scale(0.98); }
+
+/* -------------------------
+   Menu grid
+   ------------------------- */
 .menu {
   width: 100%;
   max-width: 96vw;
@@ -95,9 +135,145 @@
   padding: var(--space-m);
   box-sizing: border-box;
   overflow-y: visible;
+  min-width: 0;
 }
 
-/* Basket / Order section */
+/* -------------------------
+   Category panel (consolidated)
+   ------------------------- */
+.categories {
+  width: 100%;
+  max-width: 96%;
+  background-color: moccasin;
+  border: 0.5vh solid var(--color-border);
+  border-radius: 2vh;
+  margin: 0.5rem 0;
+  color: var(--color-border);
+  padding: clamp(0.6rem, 1.5vw, 1rem);
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.categories:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,.2); }
+
+.categories-content {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(0.4rem, 1vw, 0.75rem);
+  width: 100%;
+  min-width: 0;                     /* allow center column to shrink */
+}
+
+.categories img {
+  inline-size: clamp(50px, 10vw, 100px);
+  block-size: clamp(50px, 10vw, 100px);
+  border-radius: 1.2vh;
+  border: 2px solid lightcoral;
+  object-fit: cover;
+}
+
+.categories h2 {
+  text-decoration: underline;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  margin: 0;
+  text-align: center;
+  min-width: 0;
+  word-break: break-word;
+}
+
+/* -------------------------
+   Food item panel (consolidated)
+   ------------------------- */
+.FoodItemComp {
+  width: 100%;
+  max-width: 96%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: antiquewhite;
+  color: darkslategray;
+  margin: 0.25rem 0;
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0.6rem;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.FoodItemComp:hover { transform: translateY(-1px); box-shadow: 0 2px 6px rgba(0,0,0,.15); }
+
+.FoodItemComp img {
+  inline-size: clamp(56px, 8vw, 96px);
+  block-size: clamp(56px, 8vw, 96px);
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+  object-fit: cover;
+  flex: 0 0 auto;                  /* don’t steal width */
+}
+
+.FoodItemText {
+  flex: 1 1 auto;
+  min-width: 0;                     /* critical: lets text wrap instead of overlapping buttons */
+  text-align: left;
+}
+
+.FoodItemText h1 {
+  font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+  font-weight: 700;
+  margin: 0 0 0.15rem 0;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.FoodItemText #desc {
+  font-size: clamp(0.75rem, 1.8vw, 0.95rem);
+  margin: 0 0 0.25rem 0;
+  line-height: 1.3;
+  color: #666;
+}
+
+.FoodItemText p {
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-border);
+}
+
+.FoodItemButtons {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 0.4rem;
+  align-content: center;
+  justify-items: center;
+  flex: 0 0 auto;
+}
+
+.FoodItemComp #AddItem,
+.FoodItemComp #RemoveItem {
+  inline-size: clamp(34px, 5.5vw, 44px);
+  block-size: clamp(34px, 5.5vw, 44px);
+  border-radius: 50%;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.FoodItemComp #AddItem { background-color: darkolivegreen; font-size: clamp(1rem, 2.5vw, 1.2rem); }
+.FoodItemComp #AddItem:hover { background-color: #4a6a2a; transform: scale(1.06); }
+
+.FoodItemComp #RemoveItem { background-color: var(--color-border); font-size: clamp(1.2rem, 3vw, 1.4rem); }
+.FoodItemComp #RemoveItem:hover { background-color: #a02020; transform: scale(1.06); }
+
+/* -------------------------
+   Basket (consolidated)
+   ------------------------- */
 .basket {
   width: 100%;
   max-width: 96vw;
@@ -109,29 +285,105 @@
   text-align: left;
   padding: var(--space-m);
   box-sizing: border-box;
+  min-width: 0;
 }
 
-/* Message / Info area */
-.message {
-  width: 100%;
-  max-width: 96vw;
+/* inner basket layout */
+.order {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 0;                   /* allow inner scroll to shrink in flex parent */
+}
+
+.order h4,
+h4 {
+  margin: 0.25rem 0.5rem 0 0.5rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: var(--color-border);
   text-align: center;
-  padding: var(--space-l);
+}
+
+.scrollItems {
+  flex: 1 1 auto;                  /* grows/contracts without hiding footer */
+  min-height: 120px;
+  max-height: clamp(200px, 40vh, 520px);
+  overflow: auto;
+  scroll-behavior: smooth;
+
+  width: 100%;
+  background-color: antiquewhite;
+  color: var(--color-border);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
   box-sizing: border-box;
 }
 
-.message h2 {
-  font-size: var(--fs-l);
-  margin: var(--space-s) 0;
+.scrollItems table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
 }
 
-/* =========================
-   Responsive Enhancements
-   ========================= */
+.scrollItems th {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-border);
+  color: antiquewhite;
+  padding: 0.5rem 0.25rem;
+  font-weight: 700;
+  z-index: 1;
+}
+
+.scrollItems td {
+  border-bottom: 1px solid #ddd;
+  padding: 0.4rem 0.25rem;
+  text-align: center;
+}
+
+.showTotal {
+  margin: 0.25rem 0 0.5rem 0;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 700;
+  color: var(--color-border);
+  text-align: center;
+}
+
+.footer {
+  margin-top: auto;                /* sticks footer to bottom when there’s space */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0.5rem 0;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.footer button {
+  flex: 0 1 280px;
+  max-width: 320px;
+  min-width: 140px;
+  height: clamp(40px, 6vh, 56px);
+  background-color: antiquewhite;
+  color: var(--color-border);
+  border: 2px solid var(--color-border);
+  border-radius: 25px;
+  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.footer button:hover { background-color: var(--color-border); color: antiquewhite; transform: translateY(-1px); }
+.footer button:active { transform: scale(0.98); }
+
+/* -------------------------
+   Responsive enhancements
+   ------------------------- */
 
 /* Tablets and up */
 @media (min-width: 768px) {
@@ -139,32 +391,50 @@
     max-width: 900px;
     margin-inline: auto;
   }
-
-  .navigation {
-    justify-content: space-between;
-  }
+  .navigation { justify-content: space-between; }
 }
 
 /* Desktops and large screens */
 @media (min-width: 1200px) {
   .App-header {
     max-width: 1200px;
-  }
 
-  /* Optionally, place basket next to menu on wide screens */
-  .App-header {
+    /* place basket alongside menu on wide screens */
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-areas:
       "banner banner"
-      "menu basket"
+      "nav     nav"
+      "menu    basket"
       "message message";
     gap: var(--space-m);
     align-items: start;
   }
 
   .banner { grid-area: banner; }
+  .navigation { grid-area: nav; }
   .menu { grid-area: menu; }
   .basket { grid-area: basket; position: sticky; top: var(--space-m); }
   .message { grid-area: message; }
+}
+
+/* Small device polish */
+@media (max-width: 768px) {
+  .navBar { min-width: 100px; margin-bottom: 0.5rem; }
+  .navBar button { border-radius: 16px; border-width: 2px; font-size: clamp(0.7rem, 2vw, 0.9rem); padding: 0.4rem; }
+  .scrollItems { max-height: clamp(180px, 35vh, 420px); border-radius: 6px; }
+  .footer button { min-width: 120px; border-radius: 20px; }
+}
+
+@media (max-width: 480px) {
+  .navBar { min-width: 90px; margin-bottom: 0.4rem; }
+  .navBar button { min-height: 44px; font-size: clamp(0.7rem, 3.2vw, 0.85rem); }
+
+  .FoodItemComp { flex-direction: column; text-align: center; gap: 0.5rem; }
+  .FoodItemText { text-align: center; }
+  .FoodItemButtons { grid-auto-flow: column; gap: 0.75rem; }
+
+  .order { padding: 0.3rem; }
+  .scrollItems { border-width: 1px; border-radius: 6px; }
+  .footer button { min-width: 110px; height: 44px; border-radius: 18px; }
 }

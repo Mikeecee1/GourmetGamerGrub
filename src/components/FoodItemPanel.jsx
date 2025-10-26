@@ -1,5 +1,5 @@
 // will contain menu/ categories and items in each category when toggled
-import './FoodItemPanelStyles.css'
+//import './FoodItemPanelStyles.css'
 
 function FoodItemPanel(props){
     //vars & functions

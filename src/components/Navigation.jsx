@@ -1,5 +1,5 @@
 //navigation for menu panel
-import './NavigationStyles.css'
+//import './NavigationStyles.css'
 
 function Navigation(props){
 //functions

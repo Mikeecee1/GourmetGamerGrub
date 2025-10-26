@@ -1,5 +1,5 @@
 
-import './CategoryPanelStyles.css'
+//import './CategoryPanelStyles.css'
 
 function CategoryPanel(props){
     //functions here
